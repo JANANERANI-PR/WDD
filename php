@@ -33,3 +33,16 @@ Output:
 1	1	0.5	0.33	
 2	2	1	0.67	
 3	3	1.5	1	
+
+QUESTION 4
+<?php
+$animal = "antelope"; 
+$animal_heads = 1; 
+$animal_legs = 4;
+
+echo "The $animal has $animal_heads head(s).";
+echo "The $animal has $animal_legs leg(s).";
+?>
+Output:
+
+The antelope has 1 head(s).The antelope has 4 leg(s).
