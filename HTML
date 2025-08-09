@@ -117,4 +117,356 @@ QUESTION 3
 </body>
 </html>
 
+QUESTION 10
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grade Checker</title>
+</head>
+<body>
+
+  <h2>Student Grade Checker</h2>
+
+  <?php
+  // Sample student marks array
+  $students = [
+    "John" => 95,
+    "Alice" => 82,
+    "Bob" => 67,
+    "Diana" => 54,
+    "Eve" => 38
+  ];
+
+  // Loop through each student and assign grades
+  foreach ($students as $name => $marks) {
+    echo "<strong>$name</strong> - Marks: $marks - Grade: ";
+
+    if ($marks >= 90 && $marks <= 100) {
+      echo "A";
+    } elseif ($marks >= 75 && $marks < 90) {
+      echo "B";
+    } elseif ($marks >= 60 && $marks < 75) {
+      echo "C";
+    } elseif ($marks >= 40 && $marks < 60) {
+      echo "D";
+    } elseif ($marks < 40) {
+      echo "Fail";
+    } else {
+      echo "Invalid Marks";
+    }
+
+    echo "<br>";
+  }
+  ?>
+
+</body>
+</html>
+
+OUTPUT:
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Grade Checker</title>
+</head>
+<body>
+
+  <h2>Student Grade Checker</h2>
+
+  <strong>John</strong> - Marks: 95 - Grade: A<br><strong>Alice</strong> - Marks: 82 - Grade: B<br><strong>Bob</strong> - Marks: 67 - Grade: C<br><strong>Diana</strong> - Marks: 54 - Grade: D<br><strong>Eve</strong> - Marks: 38 - Grade: Fail<br>
+</body>
+</html>
+
+
+=== Code Execution Successful ===
+
+QUESTION 11
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Days of the Week</title>
+</head>
+<body>
+
+  <h2>Enter a number (1 to 7) to get the day of the week</h2>
+
+  <form method="post" action="">
+    <label for="day_number">Day Number (1-7): </label>
+    <input type="number" name="day_number" min="1" max="7" required>
+    <input type="submit" value="Show Day">
+  </form>
+
+  <br>
+
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $day = $_POST['day_number'];
+
+    echo "<h3>Result:</h3>";
+
+    switch ($day) {
+      case 1:
+        echo "Sunday";
+        break;
+      case 2:
+        echo "Monday";
+        break;
+      case 3:
+        echo "Tuesday";
+        break;
+      case 4:
+        echo "Wednesday";
+        break;
+      case 5:
+        echo "Thursday";
+        break;
+      case 6:
+        echo "Friday";
+        break;
+      case 7:
+        echo "Saturday";
+        break;
+      default:
+        echo "Invalid input. Please enter a number between 1 and 7.";
+    }
+  }
+  ?>
+
+</body>
+</html>
+
+QUESTION 12
+<!DOCTYPE html>
+INPUT:
+<html>
+<head>
+  <title>Student Grade Checker</title>
+</head>
+<body>
+
+  <h2>Enter Student Marks to Check Grade</h2>
+
+  <form method="post" action="">
+    <label for="marks">Enter Marks (%): </label>
+    <input type="number" name="marks" min="0" max="100" required>
+    <input type="submit" value="Check Grade">
+  </form>
+
+  <br>
+
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $marks = $_POST['marks'];
+
+    echo "<h3>Result:</h3>";
+
+    if ($marks >= 75 && $marks <= 100) {
+      echo "Grade: <strong>First Class</strong>";
+    } elseif ($marks >= 60 && $marks < 75) {
+      echo "Grade: <strong>Second Class</strong>";
+    } elseif ($marks >= 40 && $marks < 60) {
+      echo "Grade: <strong>Third Class</strong>";
+    } elseif ($marks >= 0 && $marks < 40) {
+      echo "Grade: <strong>Fail</strong>";
+    } else {
+      echo "Invalid marks. Please enter a value between 0 and 100.";
+    }
+  }
+  ?>
+
+</body>
+</html>
+
+QUESTION 14
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form method="post" action="">
+  <label for="name">Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <label for="message">Message:</label><br>
+  <textarea name="message" rows="5" cols="30" required></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Collect and sanitize input values
+  $name = htmlspecialchars($_POST["name"]);
+  $email = htmlspecialchars($_POST["email"]);
+
+  // Display confirmation message
+  echo "<h3>Thank you for contacting us, $name!</h3>";
+  echo "<p>We have received your message and will get back to you at <strong>$email</strong>.</p>";
+}
+?>
+
+</body>
+</html>
+
+QUESTION 15
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Digits</title>
+</head>
+<body>
+
+<h2>Enter a Number to Calculate Sum of Digits</h2>
+
+<form method="post" action="">
+  <label for="number">Number:</label>
+  <input type="number" name="number" required>
+  <input type="submit" value="Calculate">
+</form>
+
+<br>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $number = abs((int)$_POST["number"]); // Ensure it's positive integer
+  $sum = 0;
+  $temp = $number;
+
+  while ($temp > 0) {
+    $digit = $temp % 10;  // Extract last digit
+    $sum += $digit;       // Add to sum
+    $temp = (int)($temp / 10); // Remove last digit
+  }
+
+  echo "<h3>Sum of digits of $number is: $sum</h3>";
+}
+?>
+
+</body>
+</html>
+
+QUESTION 16
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
+
+QUENTION 17
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
+
 
