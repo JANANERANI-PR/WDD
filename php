@@ -107,7 +107,7 @@ QUESTION 6
 session_start();
 
 // Set session variables
-$_SESSION['username'] = 'Gayathri';
+$_SESSION['username'] = 'Jananerani';
 $_SESSION['role'] = 'Student';
 
 // Handle POST form submission
@@ -129,7 +129,7 @@ $getAge = $_GET['age'] ?? null;
 
   <!-- GET Method -->
   <h2>1. Pass data using GET</h2>
-  <a href="data_passing.php?name=Gayathri&age=21">Click here to send data using GET</a>
+  <a href="data_passing.php?name=Jananerani&age=21">Click here to send data using GET</a>
 
   <!-- POST Method -->
   <h2>2. Pass data using POST</h2>
