@@ -3463,7 +3463,7 @@ QUESTION 91
 session_start();
 
 // Store some data in the session
-$_SESSION['username'] = 'Indira';
+$_SESSION['username'] = 'Janane';
 $_SESSION['role'] = 'Admin';
 
 // Display the session ID
@@ -3483,7 +3483,7 @@ Output:
 
 <h3>Session ID:</h3> 71h6ce9hm97c5knstpmpj8setu<h3>Session Save Path:</h3> /var/lib/php/sessions<h3>Session Data:</h3><pre>Array
 (
-    [username] => Indira
+    [username] => Janane
     [role] => Admin
 )
 </pre>
@@ -3491,7 +3491,7 @@ Output:
 QUESTION 92
 <?php
 // Step 1: Create/Set Cookie (valid for 1 hour)
-setcookie("username", "Indira", time() + 3600, "/"); // Must be before HTML output
+setcookie("username", "Janane", time() + 3600, "/"); // Must be before HTML output
 
 // Step 2: Display Cookie Value (if it exists)
 if (isset($_COOKIE['username'])) {
