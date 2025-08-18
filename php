@@ -2774,7 +2774,7 @@ QUESTION 72
 session_start();
 
 // (i) Equivalent to session_register() - Assign values to session variables
-$_SESSION['username'] = "Indira";
+$_SESSION['username'] = "Janane";
 $_SESSION['role'] = "Admin";
 echo "<b>Session variables have been set:</b><br>";
 echo "Username: " . $_SESSION['username'] . "<br>";
@@ -2981,7 +2981,7 @@ QUESTION 78
 <?php
 // Step 1: Set a cookie if it doesn't exist
 if (!isset($_COOKIE['username'])) {
-    setcookie("username", "Indira", time() + 3600, "/"); // Expires in 1 hour
+    setcookie("username", "Janane", time() + 3600, "/"); // Expires in 1 hour
     echo "Cookie 'username' has been set.<br>";
     echo "Refresh the page to read the cookie.<br>";
 } else {
@@ -3113,7 +3113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 QUESTION 82
 <?php
 // 1. Simple cookie (name, value)
-setcookie("user", "Indira");
+setcookie("user", "Janane");
 
 // 2. Cookie with expiry time (1 hour from now)
 setcookie("theme", "dark", time() + 3600);
@@ -3184,7 +3184,7 @@ session_start();
 
 // Step 1: Set session values
 if (!isset($_SESSION['username'])) {
-    $_SESSION['username'] = "Indira";
+    $_SESSION['username'] = "Janane";
     $_SESSION['role'] = "Admin";
     echo "<p>✅ Session variables have been set.</p>";
 }
@@ -3222,7 +3222,7 @@ Output:
 
 <p>✅ Session variables have been set.</p><h3>Session Data:</h3><pre>Array
 (
-    [username] => Indira
+    [username] => Janane
     [role] => Admin
 )
 </pre>
